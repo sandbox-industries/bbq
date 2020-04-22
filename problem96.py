@@ -6,7 +6,7 @@ def parray(arr):
         print(row)
 
 
-# Convinience function to check if a board is correct (Unused)
+# Convenience function to check if a board is correct (Unused)
 def correct(board):
 
     # Check rows for duplicates
