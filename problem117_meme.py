@@ -16,13 +16,13 @@ class RuntimeExecutioner(object):
 
         self._callable = func
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f'Safety wrapper for: {self._callable}'
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f'RuntimeExecutioner instance around: {self._callable}'
 
-    def __execute__(self, *args, **kwargs):
+    def __execute__(self, *args, **kwargs) -> Any:
         return self._callable(*args, **kwargs)
 
     def safe_execute(self,
@@ -61,7 +61,7 @@ class RestrictedCompositionAlgorithm(object):
 
         self._vector = initial_vector
 
-    def __call__(self, n: int, *args, **kwargs) -> int:
+    def __call__(self, n: int) -> int:
         """Returns the total number of compositions given n-space."""
         if n < 0:
             raise ValueError('must be postive integer')
@@ -80,10 +80,10 @@ class RestrictedCompositionAlgorithm(object):
         # Return the head of the vector, because math
         return self._vector[0]
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f'Composition Algorithm instance ({len(self._vector)})'
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return str(self._vector)
 
 
@@ -105,10 +105,10 @@ class CompositionVectorGenerator(object):
             lowerbound_index: int = max(0, i - size)
             self._vector[i] = sum(self._vector[lowerbound_index:i])
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f'Generated vector: {self._vector}'
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return str(self._vector)
 
     def __sizeof__(self) -> int:
